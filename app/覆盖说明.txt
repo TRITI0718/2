@@ -1,0 +1,14 @@
+这次截图的问题不是学习逻辑，而是新版 CSS 没有被浏览器加载：
+- 截图中 FRANÇAIS 仍显示；新版 CSS 会隐藏它。
+- 四个中文导航竖排；新版 CSS 会固定为底部横向 icon + English。
+- 中央圆和弧形滑杆均未获得布局样式。
+
+处理方法：
+1. 关闭正在运行的 uvicorn。
+2. 在原 french-learning-web 项目中，把整个 static 文件夹先改名备份，例如 static-old。
+3. 用本压缩包中的 static 文件夹完整替换它，不要只复制 index.html。
+4. 重新运行：python3 -m uvicorn app.main:app --reload
+5. 打开 http://127.0.0.1:8000
+6. 浏览器 Command + Shift + R 强制刷新。
+
+本版把 CSS 文件改名为 tablet-interface.css，并在 HTML 里加版本参数，避免旧 styles.css 缓存继续生效。
