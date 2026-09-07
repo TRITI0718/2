@@ -1,0 +1,178 @@
+[
+  {
+    "id": "g-pronoun-1",
+    "mode": "pronoun",
+    "mode_label": "代词练习",
+    "sentence": "Je téléphone à Marie. → Je ____ téléphone.",
+    "underlined": "à Marie",
+    "instruction": "用合适的间接宾语代词替换下划线部分。",
+    "answer": "lui",
+    "options": ["lui", "la", "le", "leur"],
+    "explanation": "téléphoner à quelqu’un 使用间接宾语代词；Marie 为单数，因此用 lui。"
+  },
+  {
+    "id": "g-pronoun-2",
+    "mode": "pronoun",
+    "mode_label": "代词练习",
+    "sentence": "Tu vois Paul et Luc ? Oui, je ____ vois.",
+    "underlined": "Paul et Luc",
+    "instruction": "选择正确的直接宾语代词。",
+    "answer": "les",
+    "options": ["les", "leur", "lui", "en"],
+    "explanation": "voir 是直接及物动词，复数宾语用 les。"
+  },
+  {
+    "id": "g-verb-1",
+    "mode": "verb",
+    "mode_label": "动词练习",
+    "sentence": "Nous ____ français chaque jour.",
+    "underlined": "parler",
+    "instruction": "将下划线动词按主语进行正确变位。",
+    "answer": "parlons",
+    "options": ["parlons", "parlez", "parlent", "parlerons"],
+    "explanation": "主语 nous 在直陈式现在时中，parler 变为 parlons。"
+  },
+  {
+    "id": "g-verb-2",
+    "mode": "verb",
+    "mode_label": "动词练习",
+    "sentence": "Ils ____ très tôt le matin.",
+    "underlined": "se lever",
+    "instruction": "选择正确的代词式动词变位。",
+    "answer": "se lèvent",
+    "options": ["se lèvent", "se lève", "vous levez", "sont levés"],
+    "explanation": "主语 ils 对应 se lèvent；词干 e 在重读音节中变为 è。"
+  },
+  {
+    "id": "g-preposition-1",
+    "mode": "preposition",
+    "mode_label": "介词练习",
+    "sentence": "Elle habite ____ Paris depuis deux ans.",
+    "underlined": "Paris",
+    "instruction": "选择适用于城市名的介词。",
+    "answer": "à",
+    "options": ["à", "en", "au", "chez"],
+    "explanation": "表示居住在城市时通常使用 à。"
+  },
+  {
+    "id": "g-preposition-2",
+    "mode": "preposition",
+    "mode_label": "介词练习",
+    "sentence": "Nous revenons ____ Japon demain.",
+    "underlined": "Japon",
+    "instruction": "选择表示“从某国回来”的正确介词。",
+    "answer": "du",
+    "options": ["du", "de", "des", "au"],
+    "explanation": "Japon 是阳性单数国名，表示“从日本”用 du Japon。"
+  },
+  {
+    "id": "g-tense-1",
+    "mode": "tense",
+    "mode_label": "时态练习",
+    "sentence": "Hier, nous ____ un film français.",
+    "underlined": "regarder",
+    "instruction": "根据时间标志选择正确的过去时形式。",
+    "answer": "avons regardé",
+    "options": ["avons regardé", "regardons", "regarderons", "regardions"],
+    "explanation": "Hier 指向已完成的过去事件，此处使用 passé composé。"
+  },
+  {
+    "id": "g-tense-2",
+    "mode": "tense",
+    "mode_label": "时态练习",
+    "sentence": "Quand j'étais petit, je ____ souvent ici.",
+    "underlined": "jouer",
+    "instruction": "为过去的习惯性动作选择合适时态。",
+    "answer": "jouais",
+    "options": ["jouais", "ai joué", "jouerai", "joue"],
+    "explanation": "过去反复发生的习惯通常使用 imparfait。"
+  },
+  {
+    "id": "g-sentence-1",
+    "mode": "sentence",
+    "mode_label": "句式练习",
+    "sentence": "____ est-ce que tu apprends le français ? — Parce que j'aime la langue.",
+    "underlined": "Parce que…",
+    "instruction": "选择与回答相匹配的疑问词。",
+    "answer": "Pourquoi",
+    "options": ["Pourquoi", "Quand", "Comment", "Combien"],
+    "explanation": "Parce que 回答原因，因此问题应使用 Pourquoi。"
+  },
+  {
+    "id": "g-sentence-2",
+    "mode": "sentence",
+    "mode_label": "句式练习",
+    "sentence": "____ livre préfères-tu ?",
+    "underlined": "livre",
+    "instruction": "选择与阳性单数名词一致的疑问限定词。",
+    "answer": "Quel",
+    "options": ["Quel", "Quelle", "Quels", "Quelles"],
+    "explanation": "livre 为阳性单数，因此使用 Quel。"
+  },
+  {
+    "id": "g-gender-1",
+    "mode": "gender",
+    "mode_label": "阴阳性练习",
+    "sentence": "____ voiture rouge est à Marie.",
+    "underlined": "voiture",
+    "instruction": "根据名词阴阳性选择正确的定冠词。",
+    "answer": "La",
+    "options": ["La", "Le", "Un", "Du"],
+    "explanation": "voiture 是阴性单数名词，因此使用 La。"
+  },
+  {
+    "id": "g-gender-2",
+    "mode": "gender",
+    "mode_label": "阴阳性练习",
+    "sentence": "Paul est ____ ami de Lucie.",
+    "underlined": "ami",
+    "instruction": "选择与阳性单数名词一致的不定冠词。",
+    "answer": "un",
+    "options": ["un", "une", "des", "de la"],
+    "explanation": "ami 在这里是阳性单数名词，因此使用 un。"
+  },
+  {
+    "id": "g-gender-3",
+    "mode": "gender",
+    "mode_label": "阴阳性练习",
+    "sentence": "Elle porte une robe ____.",
+    "underlined": "vert",
+    "instruction": "让形容词与阴性单数名词 robe 保持一致。",
+    "answer": "verte",
+    "options": ["verte", "vert", "verts", "vertes"],
+    "explanation": "robe 为阴性单数，vert 需变化为 verte。"
+  },
+  {
+    "id": "g-wordform-1",
+    "mode": "wordform",
+    "mode_label": "词性变化练习",
+    "sentence": "Il répond ____ à la question.",
+    "underlined": "rapide",
+    "instruction": "把形容词变为修饰动词 répond 的副词。",
+    "answer": "rapidement",
+    "options": ["rapidement", "rapide", "rapidité", "rapides"],
+    "explanation": "修饰动词需要副词 rapidement。"
+  },
+  {
+    "id": "g-wordform-2",
+    "mode": "wordform",
+    "mode_label": "词性变化练习",
+    "sentence": "Cette décision est très ____.",
+    "underlined": "importance",
+    "instruction": "把名词变为与 décision 搭配的形容词。",
+    "answer": "importante",
+    "options": ["importante", "importance", "importamment", "importer"],
+    "explanation": "décision 为阴性单数，需要形容词 importante。"
+  },
+  {
+    "id": "g-wordform-3",
+    "mode": "wordform",
+    "mode_label": "词性变化练习",
+    "sentence": "La ____ de ce musée attire beaucoup de visiteurs.",
+    "underlined": "beau",
+    "instruction": "把形容词变为句中所需的名词。",
+    "answer": "beauté",
+    "options": ["beauté", "beau", "bellement", "embellir"],
+    "explanation": "定冠词 La 后需要名词 beauté。"
+  }
+]
