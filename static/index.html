@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="横版平板优先的法语学习网站" />
+  <title>Français · French Learning</title>
+  <link rel="stylesheet" href="/static/css/tablet-interface.css?v=20260907-04" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand" aria-hidden="true">FRANÇAIS</div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-item active" data-view="learn" aria-label="Learning">
+        <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 7.5A3.5 3.5 0 0 1 8 4h8a3.5 3.5 0 0 1 3.5 3.5v9A3.5 3.5 0 0 1 16 20H8a3.5 3.5 0 0 1-3.5-3.5z"/><path d="M8 9.5h8M8 14h5"/></svg></span>
+        <span class="nav-label">Learning</span>
+      </button>
+      <button class="nav-item" data-view="grammar" aria-label="Grammar">
+        <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/><path d="M9.5 7h3A4.5 4.5 0 0 1 17 11.5v3"/></svg></span>
+        <span class="nav-label">Grammar</span>
+      </button>
+      <button class="nav-item" data-view="spelling" aria-label="Spelling">
+        <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 16.5-.7 3.2 3.2-.7L18.8 7.7a2.2 2.2 0 0 0-3.1-3.1zM14.5 5.8l3.1 3.1"/><path d="M11 20h9"/></svg></span>
+        <span class="nav-label">Spelling</span>
+      </button>
+      <button class="nav-item" data-view="settings" aria-label="Setting">
+        <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></span>
+        <span class="nav-label">Setting</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="app" class="app-shell" aria-live="polite">
+    <section id="learn-view" class="view active">
+      <div class="learn-top-tools">
+        <label class="learning-book">
+          <span>CEFR</span>
+          <select id="book-select" aria-label="词书选择"></select>
+        </label>
+      </div>
+
+      <div class="learn-dashboard orbit-dashboard">
+        <div class="study-launchers" aria-label="Study actions">
+          <button id="start-word-study" class="begin-learning" type="button">Begin Learning</button>
+          <button id="start-review" class="begin-reviewing" type="button" disabled>Begin Reviewing</button>
+        </div>
+
+        <button id="learning-orbit" class="learn-orbit" type="button" aria-label="点击切换打卡统计与每日学习柱状图" aria-pressed="false">
+          <div id="orbit-checkins" class="orbit-checkins orbit-panel">
+            <div id="attendance-bubbles" class="attendance-bubbles" aria-label="打卡天数"></div>
+          </div>
+          <div id="orbit-stats" class="orbit-stats orbit-panel" hidden>
+            <div id="study-bar-chart" class="learning-bar-track" aria-label="每日学习单词数量"></div>
+          </div>
+        </button>
+
+        <div class="learning-count-arc" aria-label="每日学习数量">
+          <svg class="quantity-arc-art" viewBox="0 0 100 100" aria-hidden="true">
+            <path class="quantity-arc-path quantity-arc-base" d="M 8.65 34.95 A 44 44 0 0 0 75.24 86.04" />
+            <path class="quantity-arc-path quantity-arc-complete" d="M 8.65 34.95 A 44 44 0 0 0 75.24 86.04" />
+            <path class="quantity-arc-path quantity-arc-remaining" d="M 8.65 34.95 A 44 44 0 0 0 75.24 86.04" />
+          </svg>
+          <span class="arc-min" aria-hidden="true">10</span>
+          <input id="study-quantity" class="arc-range" type="range" min="10" max="200" step="10" value="30" aria-label="每日学习数量" />
+          <span id="arc-knob" class="arc-knob" aria-hidden="true"></span>
+          <output id="study-quantity-value" class="daily-count-value" for="study-quantity">30</output>
+          <span class="arc-max" aria-hidden="true">200</span>
+        </div>
+      </div>
+
+      <aside id="review-hub" class="review-hub" hidden aria-label="Review center">
+        <div class="drawer-heading">
+          <div><span>Review Center</span><strong>Choose what to revisit</strong></div>
+          <button id="close-review-hub" class="drawer-close" type="button" aria-label="关闭复习中心">×</button>
+        </div>
+        <button id="start-todays-review" class="review-route" type="button">
+          <span>Today's Review</span><small id="today-review-count">0 words due</small>
+        </button>
+        <button id="open-starred" class="review-route" type="button">
+          <span>Starred</span><small id="starred-count">0 saved words</small>
+        </button>
+        <div id="starred-drawer" class="starred-drawer" hidden>
+          <div id="starred-list" class="drawer-word-list"></div>
+        </div>
+      </aside>
+
+      <div class="sr-only" aria-live="polite">
+        <span id="review-due-count">今日待复习 0 词</span>
+        <span id="review-schedule">复习间隔：1 / 2 / 4 / 7 / 15 / 30 / 60 天</span>
+        <span id="review-status"></span>
+      </div>
+    </section>
+
+    <section id="grammar-view" class="view">
+      <div class="grammar-controls control-panel two-column">
+        <label class="field-block">
+          <span>模式选择</span>
+          <select id="grammar-mode" aria-label="语法模式选择">
+            <option value="mixed">综合练习</option>
+            <option value="pronoun">代词练习</option>
+            <option value="verb">动词练习</option>
+            <option value="preposition">介词练习</option>
+            <option value="tense">时态练习</option>
+            <option value="sentence">句式练习</option>
+            <option value="gender">阴阳性练习</option>
+            <option value="wordform">词性变化练习</option>
+          </select>
+        </label>
+        <button id="start-grammar-study" class="primary-action" type="button">Begin Practice</button>
+      </div>
+    </section>
+
+    <section id="spelling-view" class="view">
+      <div class="page-heading-row spelling-heading-row">
+        <div id="spelling-language-tabs" class="secondary-nav" role="tablist" aria-label="提示语言">
+          <button class="prompt-tab active" data-language="chinese" type="button">中文</button>
+          <button class="prompt-tab" data-language="english" type="button">English</button>
+          <button class="prompt-tab" data-language="french" type="button">Français</button>
+        </div>
+        <div class="spelling-actions" aria-label="拼写记录操作">
+          <button id="save-spelling" class="pill-action" type="button">Save</button>
+          <button id="clear-spelling" class="pill-action secondary-pill" type="button">Clear</button>
+          <span id="spelling-save-status" class="save-status" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <div id="spelling-list" class="spelling-list"></div>
+    </section>
+
+    <section id="settings-view" class="view">
+      <div class="settings-grid">
+        <div class="setting-row">
+          <div><strong>背景颜色</strong><span>横版界面的背景颜色</span></div>
+          <label class="color-control" aria-label="背景颜色"><input id="theme-color" type="color" /><span class="color-swatch"></span></label>
+        </div>
+        <div class="setting-row">
+          <div><strong>重点色 1</strong><span>中央圆形、打卡与统计区域</span></div>
+          <label class="color-control" aria-label="重点色 1"><input id="accent-color" type="color" /><span class="color-swatch"></span></label>
+        </div>
+        <div class="setting-row">
+          <div><strong>重点色 2</strong><span>当前导航、按钮与交互高亮</span></div>
+          <label class="color-control" aria-label="重点色 2"><input id="accent2-color" type="color" /><span class="color-swatch"></span></label>
+        </div>
+        <div class="setting-row">
+          <div><strong>重点色 3</strong><span>中央大圆内的打卡圆点</span></div>
+          <label class="color-control" aria-label="重点色 3"><input id="accent3-color" type="color" /><span class="color-swatch"></span></label>
+        </div>
+        <div class="setting-row">
+          <div><strong>正确颜色</strong><span>正确答案状态</span></div>
+          <label class="color-control" aria-label="正确答案颜色"><input id="correct-color" type="color" /><span class="color-swatch"></span></label>
+        </div>
+        <div class="setting-row">
+          <div><strong>错误颜色</strong><span>错误答案状态</span></div>
+          <label class="color-control" aria-label="错误答案颜色"><input id="wrong-color" type="color" /><span class="color-swatch"></span></label>
+        </div>
+        <div class="setting-row word-browser-setting">
+          <div><strong>单词浏览器</strong><span>搜索、筛选并浏览当前词书</span></div>
+          <button id="open-word-browser" class="setting-open" type="button">Open</button>
+        </div>
+      </div>
+      <button id="reset-theme" class="text-action" type="button">恢复默认颜色</button>
+
+    </section>
+
+    <section id="study-view" class="view study-view">
+      <div class="study-header">
+        <button id="study-back" class="back-button" aria-label="返回" type="button">&lt;</button>
+        <div class="progress-block">
+          <span id="study-progress-label">0 / 0</span>
+          <div class="progress-track"><div id="study-progress-bar" class="progress-bar"></div></div>
+        </div>
+      </div>
+      <div class="study-stage">
+        <button id="study-star" class="study-star" type="button" aria-label="收藏此单词" aria-pressed="false" hidden>☆</button>
+        <div id="study-question-panel">
+          <p id="study-kicker" class="eyebrow"></p>
+          <h2 id="study-main" class="study-main"></h2>
+          <p id="study-meta" class="study-meta"></p>
+          <p id="study-context" class="study-context"></p>
+          <div id="study-response-layout" class="study-response-layout">
+            <div id="study-options" class="option-grid"></div>
+            <aside id="study-answer-reveal" class="study-answer-reveal" hidden aria-live="polite"></aside>
+          </div>
+          <div id="study-feedback" class="study-feedback" aria-live="polite"></div>
+          <button id="study-next" class="primary-action study-next" hidden type="button">Next</button>
+        </div>
+        <section id="session-complete" class="session-complete" hidden>
+          <h2>SESSION COMPLETE</h2>
+          <dl class="session-metrics">
+            <div><dt>WORDS</dt><dd id="complete-words">0</dd></div>
+            <div><dt>Accuracy</dt><dd id="complete-accuracy">0%</dd></div>
+            <div><dt>New Mastered</dt><dd id="complete-mastered">0</dd></div>
+            <div><dt>Need Review</dt><dd id="complete-review">0</dd></div>
+            <div><dt>Spelling Errors</dt><dd id="complete-spelling-errors">0</dd></div>
+          </dl>
+          <button id="session-done" class="primary-action session-done" type="button">Done</button>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <aside id="word-browser-drawer" class="word-browser-drawer" hidden aria-label="单词浏览器">
+    <div class="drawer-heading">
+      <div><span>Word Browser</span><strong id="word-browser-summary">Current book</strong></div>
+      <button id="close-word-browser" class="drawer-close" type="button" aria-label="关闭单词浏览器">×</button>
+    </div>
+    <div id="word-browser-books" class="word-browser-books" aria-label="选择词书"></div>
+    <div class="word-browser-filters">
+      <label><span>Search</span><input id="word-browser-search" type="search" placeholder="French, 中文 or English" /></label>
+      <label><span>Status</span><select id="word-browser-status"><option value="all">All</option><option value="new">New</option><option value="learning">Learning</option><option value="mastered">Mastered</option></select></label>
+      <label><span>Starred</span><select id="word-browser-starred"><option value="all">All</option><option value="starred">Starred only</option></select></label>
+      <label><span>Sort</span><select id="word-browser-sort"><option value="alphabetical">A → Z</option><option value="mastery">Mastery</option></select></label>
+    </div>
+    <div id="word-browser-list" class="drawer-word-list word-browser-list"></div>
+    <button id="word-browser-more" class="text-action word-browser-more" type="button" hidden>Load more</button>
+  </aside>
+
+  <script src="/static/js/app.js?v=20260907-04" defer></script>
+</body>
+</html>
